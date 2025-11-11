@@ -12,19 +12,28 @@ a5=IntVar()
 amt=IntVar()
 g=IntVar()
 na=IntVar()
-
+b1=IntVar()
+b2=IntVar()
+b3=IntVar()
 def amount():
+    extra=0
+    if b1.get()==1:
+        extra=extra+20
+    if b2.get()==1:
+        extra=extra+20
+    if b3.get()==1:
+        extra=extra+20    
     y=r11.get()
 
     if y=="PAN":
         z=450
     elif y=="REG":
         z=300
-
-    a1.set(z)
+    r=z+extra
+    a1.set(r)
     Q=a2.get()
 
-    amt=Q*z
+    amt=Q*r
 
     g=amt*0.05
 
@@ -47,9 +56,6 @@ r1=Radiobutton(text="PAN",variable=r11,value="PAN")
 r2=Radiobutton(text="REGULAR",variable=r11,value="REG")
 r1.grid(row=3,column=2)
 r2.grid(row=3,column=3)
-
-b=Button(text="OK",command=amount)
-b.grid(row=5,column=5)
 
 l3=Label(text="RATE")
 l3.grid(row=6,column=1)
@@ -77,6 +83,20 @@ l7.grid(row=10,column=1)
 e5=Entry(textvariable=a5)
 e5.grid(row=10,column=2)
 
+l8=Label(text="Toppings")
+l8.grid(row=11,column=1)
+
+c1=Checkbutton(text="cheese",variable=b1)
+c1.grid(row=12,column=1)
+
+c2=Checkbutton(text="capsicum",variable=b2)
+c2.grid(row=12,column=2)
+
+c3=Checkbutton(text="corn",variable=b3)
+c3.grid(row=12,column=3)
+
+b=Button(text="OK",command=amount)
+b.grid(row=13,column=4)
 
 
 x.mainloop()
