@@ -1,23 +1,12 @@
-'''a=['apple','banana','cherry']
-b=[]
-for i in range(len(a)):
-    c=len(a[i])
-    b.append(c)
-d=max(b)
-t=b.index(d)
-print(a[t])'''
+def char_freq(n):
+    d={}
+    a=[]
+    for i in range(len(n)):
+        x=n.count(n[i])
+        a.append(x)
+        d[n[i]]=a[i]
+    return d
 
-def long_word(a):
-    b=[]
-    for i in range(len(a)):
-        c=len(a[i])
-        b.append(c)
-    d=max(b)
-    t=b.index(d)
-    return a[t]
-
-
-
-a=['apple','banana','cherry']
-result=long_word(a)
-print(f"LONGEST WORD IS : {result}")
+n=input("ENTER SENTENCE")    
+result=char_freq(n)
+print(result)
